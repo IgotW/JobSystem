@@ -1,0 +1,77 @@
+﻿@model JobSystem.Models.CandidateRegViewModel
+
+@{
+    ViewData["Title"] = "CandidateRegistration";
+}
+
+<h1>CandidateRegistration</h1>
+
+<h4>CandidateRegViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CandidateRegistration">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if(ViewBag.Message != null)
+            {
+                <div class="form-group" style="color: green;">@ViewBag.Message</div>
+            }
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profession" class="control-label"></label>
+                <input asp-for="Profession" class="form-control" />
+                <span asp-validation-for="Profession" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearsofExperience" class="control-label"></label>
+                <input asp-for="YearsofExperience" class="form-control" />
+                <span asp-validation-for="YearsofExperience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfessionSummary" class="control-label"></label>
+                <input asp-for="ProfessionSummary" class="form-control" />
+                <span asp-validation-for="ProfessionSummary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

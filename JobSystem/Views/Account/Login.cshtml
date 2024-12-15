@@ -1,0 +1,51 @@
+﻿@model JobSystem.Models.LoginViewModel
+
+@{
+	ViewData["Title"] = "Login";
+}
+
+<div class="container py-5">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card shadow">
+				<div class="card-body p-4">
+					<h2 class="text-center mb-4">Login</h2>
+					<form asp-action="Login">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<div class="form-group">
+							<label asp-for="Email" class="control-label"></label>
+							<input asp-for="Email" class="form-control" />
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Password" class="control-label"></label>
+							<input asp-for="Password" class="form-control" />
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+						<div class="d-grid mb-3">
+							<button type="submit" class="btn btn-primary btn-lg">
+								Sign In
+							</button>
+						</div>
+						<div class="text-center">
+							<a asp-controller="Auth" asp-action="ForgotPassword" class="text-decoration-none">Forgot password?</a>
+							<p class="mt-3">
+								Don't have an account? Register as:
+							</p>
+							<div class="d-flex justify-content-center gap-2">
+								<a asp-controller="Account" asp-action="CandidateRegistration" class="btn btn-outline-success">Candidate</a>
+								<a asp-controller="Account" asp-action="CompanyRegisterration" class="btn btn-outline-primary">Company</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	@section Scripts {
+		@{
+			await Html.RenderPartialAsync("_ValidationScriptsPartial");
+		}
+	}
